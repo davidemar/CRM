@@ -36,10 +36,11 @@ if(mysqli_num_rows($results) > 0){
 	while($row = mysqli_fetch_assoc($results)){
 		$Nusuario += 1;	
 		//echo "Usuario id: ".$row["usuario_id"]." - Compania: ".$row["ncompania"]."- Contraseña: ".$row¨["contrasena"]."- email: ".$row["email"]."- Nombre del usuario: ".$row["pnombre"]."- Apellido: ".$row["papellido"]."- Calle: ".$row["calle"]."<br>";
+		echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
 		echo "<table class = 'table'>";
 		echo"</br>"."Numero: ".$Nusuario."</br>";
-		echo"<tr class = 'tableRow'><td>Usuario</td><td>Compania</td><td>Contraseña</td><td>email</td><td>Nombre</td><td>Apellido  Paterno</td><td>Apellido materno</td><td>calle</td><td>Numer</td><td>Colonia</td>";
-		echo "<tr class = 'tableRow'> <td>".$row['usuario_id']."</td><td>".$row['ncompania']."</td><td>".$row['contrasena']."</td><td>".$row['email']."</td><td>".$row['pnombre']."</td><td>".$row['sapellido']."</td></tr>";
+		echo"<tr class = 'tableRow'><td>Usuario</td><td>Compania</td><td>Contraseña</td><td>email</td><td>Nombre</td><td>Apellido  Paterno</td><td>Apellido materno</td><td>calle</td><td>Numero</td><td>Colonia</td><td>Ciudad</td></tr>";
+		echo "<tr class = 'tableRow'> <td>".$row['usuario_id']."</td><td>".$row['ncompania']."</td><td>".$row['contrasena']."</td><td>".$row['email']."</td><td>".$row['pnombre']."</td><td>".$row['papellido']."</td><td>".$row['sapellido']."</td><td>".$row['calle']."</td><td>".$row['numero']."</td><td>".$row['colonia']."</td><td>".$row['ciudad']."</td></tr>";
 		echo"</table>";
 
 	}

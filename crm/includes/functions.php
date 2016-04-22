@@ -35,6 +35,7 @@ function ProcessUserLogin($post){
 }
 
 
+
 function UpdateContact($post)
 {
 
@@ -156,6 +157,13 @@ function getUsuarios(){
     return $results;
 }
 
+function getSizeOfColumn($query)
+{
+    $conn = GetConnection();
+    $results = mysqli_query($conn,$query);
+    $return = mysqli_field_count($results);
+    return $return;
+}
 
 
 ?>
