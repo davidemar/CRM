@@ -1,0 +1,90 @@
+h1{
+	text-align: center;
+	font-family: arial;
+}
+
+a{
+	font-weight: strong;
+}
+
+h2{
+	text-align: center;
+	font-family: arial;
+}
+
+div#menuheader{
+	margin: 0; 
+	padding: .3em 0 .3em 0; 
+	background: #ddeebb; 
+	width: 100%; 
+	text-align: center;
+}
+
+div#menuheader ul { 
+   list-style: none; 
+   margin: 0; 
+   padding: 0; 
+} 
+
+div#menuheader ul li { 
+   margin: 0; 
+   padding: 0; 
+   display: inline; 
+} 
+
+div#menuheader ul a:link{ 
+   margin: 0; 
+   padding: .3em .4em .3em .4em; 
+   text-decoration: none; 
+   font-weight: bold; 
+   font-size: medium; 
+   color: #004415; 
+} 
+
+div#menuheader ul a:visited{ 
+   margin: 0; 
+   padding: .3em .4em .3em .4em; 
+   text-decoration: none; 
+   font-weight: bold; 
+   font-size: medium; 
+   color: #227755; 
+} 
+
+div#menuheader ul a:active{ 
+   margin: 0; 
+   padding: .3em .4em .3em .4em; 
+   text-decoration: none; 
+   font-weight: bold; 
+   font-size: medium; 
+   color: #227755; 
+} 
+
+div#menuheader ul a:hover{ 
+   margin: 0; 
+   padding: .3em .4em .3em .4em; 
+   text-decoration: none; 
+   font-weight: bold; 
+   font-size: medium; 
+   color: #f6f0cc; 
+   background-color: #227755; 
+}
+
+/* no jalan los sub items */
+
+#submenu li ul{
+   display: none;
+}
+
+#submenu li:hover ul {
+   font-size: 12px;
+   display: block; /*Al situar el cursor sobre el item la lista de subitems pasa de display none a display block y se muestra*/
+   position: absolute; /*Al desplegarse el submenú no ocupa espacio y no desplaza a otros elementos gracias a que establecemos position absolute*/
+   margin: 0; padding: 0; /*Anulamos margin y padding que por defecto introducen navegadores*/
+   }
+#submenu li:hover li { float: none; } /*Anulamos el float left que define el elemento padre para que los subitems se muestren en vertical */
+   
+/*Creamos la apariencia de los subitems de menú, color de fondo, borde inferior, color de texto*/
+#submenu li:hover li a { background-color: #69f; border-bottom: 1px solid #fff; color: #000; }
+
+/*Creamos el efecto de cambio de color y aspecto cuando ponemos el puntero del ratón sobre un subitem de menú*/   
+#submenu li li a:hover { background-color: #8db3ff; }
