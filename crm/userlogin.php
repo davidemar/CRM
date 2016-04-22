@@ -11,7 +11,7 @@ if(!$_SESSION['UserLoggedIn'])
 	{
 		if(ProcessUserLogin($_POST))
 		{
-			header('location: inventario/index.html');
+			header('location: UserHome.php');
 		}else{
 			include_once("includes/header.php");
 			DisplayErrorMessage('Login credentials incorrect!');
@@ -27,7 +27,7 @@ if(!$_SESSION['UserLoggedIn'])
 		echo "</div>";
 	}
 }else{
-	header("location: inventario/index.html");
+	header("location: userHome.php");
 }
 
 
