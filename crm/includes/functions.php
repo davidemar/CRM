@@ -4,6 +4,7 @@ function ProcessLogin($post)
 {
 	$connection = GetConnection();
 	$query = "select * from administrator where username = '".$post['username']."' and password = '".$post['pass']."' LIMIT 1";
+    $GLOBALS['ActualUser'] =  $post['username'];
     $results = mysqli_query($connection,$query);
     if(mysqli_num_rows($results)>0){
         $row = mysqli_fetch_assoc($results);
@@ -27,7 +28,7 @@ function ProcessUserLogin($post){
         $row = mysqli_fetch_assoc($results);
         $_SESSION['UserLoggedIn'] = true;
         $_SESSION['id'] = $row["id"];
-        $_SESSION['username'] = $row['username'];
+        $_SESSION['username'] = $post['username'];
         return true;
     }else{
        return false; 
@@ -97,7 +98,7 @@ function GetConnection()
         mysqli_select_db('crm');
          if (mysqli_connect_errno()){
             
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            echo "Fallo la conexion a MySQL: " . mysqli_connect_error();
             }
 		
 		return $connection;
@@ -116,12 +117,33 @@ function setClientData($query)
     $results = mysqli_query($conn,$query);
     if($results){
         ?>
-                <script>alert('successfully registered ');</script>
+                <script>alert('Exitosamente Registrado');</script>
         <?php
         return true;
     }else{
         ?>
-        <script>alert('registered fail');</script>
+        <script>alert('Fallo el registro');</script>
+        <?php
+        return false;
+    }
+
+
+    
+    
+    
+}
+function setComplain($query)
+{
+    $conn = GetConnection();
+    $results = mysqli_query($conn,$query);
+    if($results){
+        ?>
+                <script>alert('Su queja ha sido registrada ');</script>
+        <?php
+        return true;
+    }else{
+        ?>
+        <script>alert('Su queja no ha podido ser registrada, intente denuevo mas tarde');</script>
         <?php
         return false;
     }
@@ -138,7 +160,7 @@ function deleteClientData($query)
     $results = mysqli_query($conn,$query);
     if($results){
         ?>
-                <script>alert('client deleted ');</script>
+                <script>alert('cliente eliminado ');</script>
         <?php
         return true;
     }
@@ -157,12 +179,57 @@ function getUsuarios(){
     return $results;
 }
 
-function getSizeOfColumn($query)
+function getSizeOfRow()
 {
     $conn = GetConnection();
+    $query = "select count(queja_id) from queja;";
     $results = mysqli_query($conn,$query);
-    $return = mysqli_field_count($results);
-    return $return;
+    $row = mysqli_fetch_assoc($results);
+    $desplegar = $row['count(queja_id)'];
+    return $desplegar;
+}
+
+function getUsersPerMonth()
+{
+    $conn = GetConnection();
+    $query = "select dia,count(usuario_id) users from usuario where dia like '2016%'  GROUP BY year(dia), month(dia)
+ORDER BY year(dia), month(dia);";
+    $results = mysqli_query($conn,$query);
+    return $results;
+
+}
+
+function getMonthText($month)
+{
+    switch($month){
+            case 1: 
+                return 'Enero';
+            case 2:
+                return  'Febrero';
+            case 3:
+                return 'Marzo';
+            case 4:
+                return 'Abril';
+            case 5:
+                return 'Mayo';
+            case 6:
+                return  'Junio';
+            case 7:
+                return  'julio';
+            case 8:
+                return 'Agosto';
+            case 9:
+                return  'Septiembre';
+            case 10:
+                return 'Octubre';
+            case 11:
+                return 'Noviembre';
+            case 12:
+                return 'Diciembre'; 
+            default:
+                echo "error";
+             
+        }
 }
 
 

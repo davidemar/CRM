@@ -12,6 +12,7 @@ if(isset($_POST['btn-signup']))
 
 include_once('includes/functions.php');
  $conn = GetConnection();
+ $fechaActual = date("y-m-d");
  $usuario_id = mysqli_real_escape_string($conn,$_POST['usuario_id']);
  $ncompania = mysqli_real_escape_string($conn,$_POST['ncompania']);
  $contrasena = mysqli_real_escape_string($conn,$_POST['contrasena']);
@@ -26,7 +27,7 @@ include_once('includes/functions.php');
 
 
  
-$Squery = "INSERT INTO usuario(usuario_id,ncompania,contrasena,email,pnombre,papellido,sapellido,calle,numero,colonia,ciudad) VALUES('$usuario_id','$ncompania','$contrasena','$email','$pnombre','$papellido','$sapellido','$calle','$numero','$colonia','$ciudad')";
+$Squery = "INSERT INTO usuario(usuario_id,ncompania,contrasena,email,pnombre,papellido,sapellido,calle,numero,colonia,ciudad,dia) VALUES('$usuario_id','$ncompania','$contrasena','$email','$pnombre','$papellido','$sapellido','$calle','$numero','$colonia','$ciudad','$fechaActual')";
  
 setClientData($Squery);
 /*
@@ -54,10 +55,10 @@ setClientData($Squery);
 <div id='menu'>
 
 
-<a href='deleteClient.php'>Delete A Client</a>
+<a href='deleteClient.php'>Eliminar el cliente</a>
 
 
-<a href="lists.php">Reports</a>
+<a href="lists.php">Repoortes</a>
     
 <a href='logout.php' class='logout'>Logout</a>
 </div>
@@ -113,7 +114,7 @@ setClientData($Squery);
 </tr>
 
 <tr>
-<td><button type="submit" name="btn-signup">Register the Client</button></td>
+<td><button type="submit" name="btn-signup">Registrar el cliente</button></td>
 </tr>
 
 
