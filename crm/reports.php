@@ -39,9 +39,6 @@ if(mysqli_num_rows($results1) > 0){
 		echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
 		echo "<tr class = 'table row'><td>Mes</td><td>Usuarios</td></tr>";
 		echo "<tr class = 'table row'><td>".$mes."</td><td>".$row['users']."</td></tr>";
-
-		//echo"<tr class = 'tableRow'><td>Usuario</td><td>Compania</td><td>Contraseña</td><td>email</td><td>Nombre</td><td>Apellido  Paterno</td><td>Apellido materno</td><td>calle</td><td>Numero</td><td>Colonia</td><td>Ciudad</td></tr>";
-		//echo "<tr class = 'tableRow'> <td>".$row['usuario_id']."</td><td>".$row['ncompania']."</td><td>".$row['contrasena']."</td><td>".$row['email']."</td><td>".$row['pnombre']."</td><td>".$row['papellido']."</td><td>".$row['sapellido']."</td><td>".$row['calle']."</td><td>".$row['numero']."</td><td>".$row['colonia']."</td><td>".$row['ciudad']."</td></tr>";
 		echo"</table>";
 
 	}
@@ -53,5 +50,34 @@ if(mysqli_num_rows($results1) > 0){
 //<------------------------------------------------------------------------------------------------------------------->
 
 	//el cliente que mas ha comprado en el mes es el cliente del mes  y su total de compra 
+
+//<------------------------------------------------------------------------------------------------------------------->
+// Annual Sales 
+	echo "<div id = reporte2>";
+	echo "<h1> Reportes de ventas Anuales</h1>";
+	$results2 = getAnualSales();
+	$ventaMayor = 0.0;
+	$primero = mysqli_fetch_assoc($results2);
+	
+	$fechaMayor = $primero['fecha'];
+	while($row2 = mysqli_fetch_assoc($results2)){
+		$month = date("m",strtotime($row2['fecha']));
+		$ventaMayor = bigger($ventaMayor,$row2['ventas']);
+		if($ventasMayor == $row2['ventas'])
+		{
+			$fechaMayor = $row2['fecha'];
+		}else if($fechaMayor == ''){
+			$usuarioMayor = 'no hay fecha mayor';
+		}
+		echo "<table class = 'table'>";
+		echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
+		echo "<tr class = 'table row'><td>Mes</td><td>Ventas</td></tr>";
+		echo "<tr class = 'table row'><td>".$mes."</td><td>".$row2['ventas']."</td></tr>";
+		
+		echo"</table>";
+
+	}
+	echo "<p>fecha donde hubieron mas compras: ".$fechaMayor;
+
 
 ?>
