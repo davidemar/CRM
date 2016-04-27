@@ -12,7 +12,7 @@ if(!$_SESSION['UserLoggedIn'])
 		if(ProcessUserLogin($_POST))
 		{
 			header('location: UserHome.php');
-		}else{
+		}else{	
 			include_once("includes/header.php");
 			DisplayErrorMessage('Login credentials incorrect!');
 			echo "<div class='formDiv'>";

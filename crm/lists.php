@@ -9,12 +9,14 @@ include_once("includes/functions.php");
 include_once("includes/views.php");
 include_once("includes/header.php");
 
-$cats = GetCategories();
+//$cats = GetCategories();
 
 echo "<div id='menu'>";
-echo "<a href='contact.php'>New Client</a>";
+echo "<a href='contact.php'>Nuevo  Cliente</a>";
 echo " | ";
-echo "<a href='deleteClient.php'>Delete Client</a>";
+echo "<a href='deleteClient.php'>Eliminar Cliente</a>";
+echo " | ";
+echo "<a href='reports.php'>Reportes</a>";
 echo " | ";
 echo "<a href='logout.php' class='logout'>Logout</a>";
 echo "</div>";
@@ -39,8 +41,8 @@ if(mysqli_num_rows($results) > 0){
 		echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
 		echo "<table class = 'table'>";
 		echo"</br>"."Numero: ".$Nusuario."</br>";
-		echo"<tr class = 'tableRow'><td>Usuario</td><td>Compania</td><td>Contraseña</td><td>email</td><td>Nombre</td><td>Apellido  Paterno</td><td>Apellido materno</td><td>calle</td><td>Numero</td><td>Colonia</td><td>Ciudad</td></tr>";
-		echo "<tr class = 'tableRow'> <td>".$row['usuario_id']."</td><td>".$row['ncompania']."</td><td>".$row['contrasena']."</td><td>".$row['email']."</td><td>".$row['pnombre']."</td><td>".$row['papellido']."</td><td>".$row['sapellido']."</td><td>".$row['calle']."</td><td>".$row['numero']."</td><td>".$row['colonia']."</td><td>".$row['ciudad']."</td></tr>";
+		echo"<tr class = 'tableRow'><td>Usuario</td><td>Compania</td><td>Contraseña</td><td>email</td><td>Nombre</td><td>Apellido  Paterno</td><td>Apellido materno</td><td>calle</td><td>Numero</td><td>Colonia</td><td>Ciudad</td><td>Día de registro</td></tr>";
+		echo "<tr class = 'tableRow'> <td>".$row['usuario_id']."</td><td>".$row['ncompania']."</td><td>".$row['contrasena']."</td><td>".$row['email']."</td><td>".$row['pnombre']."</td><td>".$row['papellido']."</td><td>".$row['sapellido']."</td><td>".$row['calle']."</td><td>".$row['numero']."</td><td>".$row['colonia']."</td><td>".$row['ciudad']."</td><td>".$row['dia']."</td></tr>";
 		echo"</table>";
 
 	}

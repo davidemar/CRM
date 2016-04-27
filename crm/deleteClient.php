@@ -30,7 +30,6 @@ deleteClientData($Squery);
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Login & Registration System</title>
 
 
 
@@ -42,10 +41,10 @@ deleteClientData($Squery);
 <div id='menu'>
 
 
-<a href='contact.php'>New Client</a>
+<a href='contact.php'>Nuevo Cliente</a>
 
 
-<a href="lists.php">Reports</a>
+<a href="lists.php">Reportes</a>
     
 <a href='logout.php' class='logout'>Logout</a>
 </div>
@@ -65,7 +64,7 @@ deleteClientData($Squery);
 
 
 <tr>
-<td><button type="submit" name="btn-signup">Delete the Client</button></td>
+<td><button type="submit" name="btn-signup">Eliminar el cliente</button></td>
 </tr>
 
 
