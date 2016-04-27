@@ -52,32 +52,34 @@ if(mysqli_num_rows($results1) > 0){
 	//el cliente que mas ha comprado en el mes es el cliente del mes  y su total de compra 
 
 //<------------------------------------------------------------------------------------------------------------------->
-// Annual Sales 
+// Annual Sales 		
 	echo "<div id = reporte2>";
 	echo "<h1> Reportes de ventas Anuales</h1>";
 	$results2 = getAnualSales();
+	$firstResults = getAnualSales();
 	$ventaMayor = 0.0;
-	$primero = mysqli_fetch_assoc($results2);
+	$primero = mysqli_fetch_assoc($firstResults);
 	
 	$fechaMayor = $primero['fecha'];
 	while($row2 = mysqli_fetch_assoc($results2)){
-		$month = date("m",strtotime($row2['fecha']));
+		$monthh = date("m",strtotime($row2['fecha']));
 		$ventaMayor = bigger($ventaMayor,$row2['ventas']);
 		if($ventasMayor == $row2['ventas'])
 		{
 			$fechaMayor = $row2['fecha'];
 		}else if($fechaMayor == ''){
-			$usuarioMayor = 'no hay fecha mayor';
+			$ventaMayor = 'no hay fecha mayor';
 		}
 		echo "<table class = 'table'>";
 		echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
 		echo "<tr class = 'table row'><td>Mes</td><td>Ventas</td></tr>";
-		echo "<tr class = 'table row'><td>".$mes."</td><td>".$row2['ventas']."</td></tr>";
+		echo "<tr class = 'table row'><td>".getMonthText($monthh)."</td><td>".$row2['ventas']."</td></tr>";
 		
 		echo"</table>";
 
 	}
-	echo "<p>fecha donde hubieron mas compras: ".$fechaMayor;
+	$mesMayor = date("m",strtotime($fechaMayor));
+	echo "<p>fecha donde hubieron mas compras: ".getMonthText($mesMayor);
 
 
 ?>

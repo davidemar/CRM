@@ -202,8 +202,10 @@ function getAnualSales()
     $conn = GetConnection();
     $query = "SELECT fecha,sum(total) ventas,usuario from orden where fecha like '2016%'GROUP BY year(fecha), month(fecha) ORDER BY year(fecha), month(fecha)";
     $results = mysqli_query($conn,$query);
+    mysqli_close($conn);
     return $results;
 }
+
 function bigger($x,$y)
 {
     if($x>$y)
