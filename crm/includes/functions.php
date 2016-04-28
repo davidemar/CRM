@@ -202,14 +202,13 @@ function getAnualSales()
     $conn = GetConnection();
     $query = "SELECT fecha,sum(total) ventas,usuario from orden where fecha like '2016%'GROUP BY year(fecha), month(fecha) ORDER BY year(fecha), month(fecha)";
     $results = mysqli_query($conn,$query);
-    mysqli_close($conn);
     return $results;
 }
 
 function getQueryBestBuyer(){
      $conn = GetConnection();
     $query = "SELECT sum(total) venta,usuario from orden where fecha like '2016%' group by usuario";
-    $results = mysqli_query($conn,$query);
+    $results = mysqli_query($conn,$query);   
     return $results;
 }
 
@@ -265,7 +264,40 @@ function getMonthText($month)
              
         }
 }
+function bestClient(){
+    $firstResult = mysqli_fetch_assoc(getQueryBestBuyer());
 
+    $usuarioMayor = $firstResult['usuario'];
+    $compraMayor = 0.0;
+    $buyers = getQueryBestBuyer();   
+    while($row = mysqli_fetch_assoc($buyers))
+    {    
+        $compraMayor = bigger($compraMayor,$row['venta']);
+        
+        if($compraMayor == $row['venta'])
+        {
+            $usuarioMayor = $row['usuario'];
+        }else if($compraMayor == 0.0)
+        {   
+            $usuarioMayor = 'no hay compra mayor';
+        }
+    
+    
+} return $usuarioMayor;
+}
 
+function getSalesByMonthForUser($usuarioid)
+{   $conn = GetConnection();
+    $query = "SELECT fecha,sum(total) ventas,usuario from orden where fecha like '2016%' and usuario = '$usuarioid' GROUP BY year(fecha), month(fecha),usuario ORDER BY year(fecha), month(fecha)";
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
 
+function getAllUsers()
+{   
+    $conn = GetConnection();
+    $query = "SELECT usuario from orden where fecha like '2016%' GROUP BY usuario";
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
 ?>
