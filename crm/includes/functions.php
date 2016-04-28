@@ -206,11 +206,28 @@ function getAnualSales()
     return $results;
 }
 
+function getQueryBestBuyer(){
+     $conn = GetConnection();
+    $query = "SELECT sum(total) venta,usuario from orden where fecha like '2016%' group by usuario";
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
+
+
 function bigger($x,$y)
 {
     if($x>$y)
     {
           return $x;  
+    }else {
+        return $y;
+    }
+}
+function smaller($x,$y)
+{
+    if($x<$y)
+    {
+        return $x;
     }else {
         return $y;
     }
@@ -248,6 +265,7 @@ function getMonthText($month)
              
         }
 }
+
 
 
 ?>
