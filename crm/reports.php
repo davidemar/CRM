@@ -32,7 +32,7 @@ if(mysqli_num_rows($results1) > 0){
 	echo"</div>";
 	echo "<table class = 'table'>";
 	echo "<tr class = 'table row'><td>Mes</td><td>Usuarios</td></tr>";
-	echo "</table>";
+	
 	while($row = mysqli_fetch_assoc($results1)){
 		
 		$month = date("m",strtotime($row['dia']));
@@ -40,16 +40,16 @@ if(mysqli_num_rows($results1) > 0){
 		$mes = getMonthText($month);
 
 		
-		echo "<table class = 'table'>";
+		
 		echo "<tr class = 'table row'><td>".$mes."</td><td>".$row['users']."</td></tr>";
-		echo"</table>";	
+		
 
 	}
 
 }else{
 		echo "0 results";
 	}
-
+	echo"</table>";	
 	unset($mes,$row,$month,$results1);
 
 
@@ -72,7 +72,7 @@ if(mysqli_num_rows($results1) > 0){
 	echo "<table class = 'table'>";
 	echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
 	echo "<tr class = 'table row'><td>Mes</td><td>Compras</td></tr>";
-	echo "</table>";
+	
 
 
 	while($row2 = mysqli_fetch_assoc($results2)){
@@ -94,11 +94,12 @@ if(mysqli_num_rows($results1) > 0){
 		}
 
 
-		echo "<table class = 'table'>";
+		
 		echo "<tr class = 'table row'><td>".getMonthText($monthh)."</td><td>".$row2['ventas']."</td></tr>";
-		echo"</table>";
-		echo "</div>";
+		
 	}
+	echo"</table>";
+	echo "</div>";
 
 	unset($results2,$firstResults,$monthh,$row2,$ventaMenor,$ventaMayor,$fechaMenor,$fechaMayor,$primero,$fechaMenor,$primerComprador);
 	$mesMayor = date("m",strtotime($fechaMayor));
@@ -108,7 +109,7 @@ if(mysqli_num_rows($results1) > 0){
 	echo "<p>Peor mes en compras: ".getMonthText($mesMenor);
 	echo "<p>El cliente que mas compras hizo es: ". $usuarioMayor;
 	unset($mesMayor,$mesMenor,$usuarioMayor);
-
+	
 	///---------------------------------------VIP COSTUMBERS ////////////////////////////////////////////////////////
 	echo "<div id = reporte3>";
 	echo "<h1> Reportes de ventas Anuales</h1>";
@@ -117,16 +118,14 @@ if(mysqli_num_rows($results1) > 0){
 		echo "<table class = 'table'>";
 		echo "<p>".$users['usuario']."</p>";
 		echo "<tr class = 'table row'><td><b>Mes</b></td><td><b>Ventas</b>	</td></tr>";
-		echo"</table>";
 	$ventas = getSalesByMonthForUser($users['usuario']);
 	while ($row = mysqli_fetch_assoc($ventas)){
 		$mes = date("m",strtotime($row['fecha']));
-		echo "<table class = 'table'>";
 		echo "<tr class = 'table row'><td>".getMonthText($mes)."</td><td>".$row['ventas']."</td></tr>";
-		echo"</table>";
-
+		
 	}
-}
+}	
+	echo"</table>";
 	echo"</div>";
 
 
