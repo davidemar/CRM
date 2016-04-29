@@ -1,14 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.10
+-- version 4.2.7
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Apr 27, 2016 at 06:24 AM
--- Server version: 5.5.42
+-- Generation Time: Apr 29, 2016 at 11:51 PM
+-- Server version: 5.5.41-log
 -- PHP Version: 7.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `crm`
@@ -20,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `administrator`
 --
 
-CREATE TABLE `administrator` (
+CREATE TABLE IF NOT EXISTS `administrator` (
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,7 +44,7 @@ INSERT INTO `administrator` (`username`, `password`) VALUES
 -- Table structure for table `factura`
 --
 
-CREATE TABLE `factura` (
+CREATE TABLE IF NOT EXISTS `factura` (
   `factura_id` varchar(6) NOT NULL DEFAULT '',
   `usuario_id` varchar(6) NOT NULL DEFAULT '',
   `orden_id` varchar(6) NOT NULL DEFAULT ''
@@ -50,7 +56,7 @@ CREATE TABLE `factura` (
 -- Table structure for table `orden`
 --
 
-CREATE TABLE `orden` (
+CREATE TABLE IF NOT EXISTS `orden` (
   `orden_id` varchar(6) NOT NULL,
   `usuario` varchar(6) NOT NULL,
   `impuesto` decimal(3,2) DEFAULT NULL,
@@ -67,10 +73,12 @@ CREATE TABLE `orden` (
 --
 
 INSERT INTO `orden` (`orden_id`, `usuario`, `impuesto`, `precio`, `subtotal`, `fecha`, `cant`, `total`, `costo_envio`) VALUES
-('1', 'mrilyn', '9.99', '100.00', '110.00', '2016-04-14', '1.00', '210.00', '100.00'),
-('2', 'mrilyn', '9.99', '100.00', '110.00', '2016-04-13', '1.00', '210.00', '100.00'),
-('3', 'mrilyn', '9.99', '100.00', '110.00', '2016-03-13', '1.00', '210.00', '100.00'),
-('5', 'David', '9.99', '100.00', '110.40', '2016-07-15', '1.00', '310.40', '200.00');
+('1', 'mrilyn', 9.99, 100.00, 110.00, '2016-04-14', 1.00, 210.00, 100.00),
+('10', 'LKNLK', 8.00, 9.00, 78.00, '2016-12-13', 7.00, 7.00, 2.00),
+('2', 'mrilyn', 9.99, 100.00, 110.00, '2016-04-13', 1.00, 210.00, 100.00),
+('3', 'mrilyn', 9.99, 100.00, 110.00, '2016-03-13', 1.00, 210.00, 100.00),
+('5', 'David', 9.99, 100.00, 110.40, '2016-07-15', 1.00, 310.40, 200.00),
+('8', 'kjnkjn', 7.00, 87.00, 100.00, '2016-11-27', 600.00, 700.00, 80.00);
 
 -- --------------------------------------------------------
 
@@ -78,7 +86,7 @@ INSERT INTO `orden` (`orden_id`, `usuario`, `impuesto`, `precio`, `subtotal`, `f
 -- Table structure for table `producto`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE IF NOT EXISTS `producto` (
   `producto_id` varchar(6) NOT NULL,
   `precio` decimal(8,2) DEFAULT NULL,
   `ncompania` varchar(15) DEFAULT NULL,
@@ -91,7 +99,7 @@ CREATE TABLE `producto` (
 -- Table structure for table `proveedor`
 --
 
-CREATE TABLE `proveedor` (
+CREATE TABLE IF NOT EXISTS `proveedor` (
   `proveedor_id` varchar(6) NOT NULL,
   `email` varchar(20) DEFAULT NULL,
   `horario` varchar(20) DEFAULT NULL
@@ -103,7 +111,7 @@ CREATE TABLE `proveedor` (
 -- Table structure for table `queja`
 --
 
-CREATE TABLE `queja` (
+CREATE TABLE IF NOT EXISTS `queja` (
   `queja_id` varchar(6) DEFAULT NULL,
   `usuario_id` varchar(6) DEFAULT NULL,
   `fecha` date DEFAULT NULL,
@@ -125,7 +133,7 @@ INSERT INTO `queja` (`queja_id`, `usuario_id`, `fecha`, `queja`) VALUES
 -- Table structure for table `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `usuario_id` varchar(6) NOT NULL,
   `ncompania` varchar(15) DEFAULT NULL,
   `contrasena` varchar(14) DEFAULT NULL,
@@ -162,22 +170,26 @@ INSERT INTO `usuario` (`usuario_id`, `ncompania`, `contrasena`, `email`, `pnombr
 -- Indexes for table `factura`
 --
 ALTER TABLE `factura`
-  ADD PRIMARY KEY (`factura_id`,`usuario_id`,`orden_id`);
+ ADD PRIMARY KEY (`factura_id`,`usuario_id`,`orden_id`);
 
 --
 -- Indexes for table `orden`
 --
 ALTER TABLE `orden`
-  ADD PRIMARY KEY (`orden_id`);
+ ADD PRIMARY KEY (`orden_id`);
 
 --
 -- Indexes for table `producto`
 --
 ALTER TABLE `producto`
-  ADD PRIMARY KEY (`producto_id`);
+ ADD PRIMARY KEY (`producto_id`);
 
 --
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`usuario_id`);
+ ADD PRIMARY KEY (`usuario_id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

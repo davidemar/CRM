@@ -68,7 +68,7 @@ if(mysqli_num_rows($results1) > 0){
 	$fechaMayor = $primero['fecha'];
 	$fechaMenor = $primero['fecha'];
 	$ventaMenor = $primero['ventas'];
-	$primerComprador = $primero['usuario'];
+	$primerComprador = $primero['usuario'];	
 	echo "<table class = 'table'>";
 	echo '<link href="css/estilo.css" rel="stylesheet" type="text/css" />';
 	echo "<tr class = 'table row'><td>Mes</td><td>Compras</td></tr>";
