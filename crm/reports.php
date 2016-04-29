@@ -44,7 +44,7 @@ if(mysqli_num_rows($results1) > 0){
 		echo "<tr class = 'table row'><td>".$mes."</td><td>".$row['users']."</td></tr>";
 		
 
-	}
+	}	
 
 }else{
 		echo "0 results";
@@ -114,6 +114,7 @@ if(mysqli_num_rows($results1) > 0){
 	echo "<div id = reporte3>";
 	echo "<h1> Reportes de ventas Anuales</h1>";
 	$usuarios = getAllUsers();
+	$total = 0.0;
 	while($users = mysqli_fetch_assoc($usuarios)){
 		echo "<table class = 'table'>";
 		echo "<p>".$users['usuario']."</p>";
@@ -122,11 +123,15 @@ if(mysqli_num_rows($results1) > 0){
 	while ($row = mysqli_fetch_assoc($ventas)){
 		$mes = date("m",strtotime($row['fecha']));
 		echo "<tr class = 'table row'><td>".getMonthText($mes)."</td><td>".$row['ventas']."</td></tr>";
+		$total += $row['ventas']; 
+		
 		
 	}
+	echo "<tr class = 'table row'><td>Total</td><td>".$total."</td></tr>";
+	$total = 0.0;
 }	
 	echo"</table>";
 	echo"</div>";
-
+	unset($usuarios,$total,$users,$ventas,$total,$row);
 
 ?>
