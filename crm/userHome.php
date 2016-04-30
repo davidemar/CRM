@@ -7,7 +7,7 @@ if(!$_SESSION['UserLoggedIn'])
 
 include_once('includes/functions.php');
 echo "<div class = 'menu' id='menu'>";
-echo "<a href='inventario/index.html'>Catalogo</a>";
+echo "<a href='inventario/index.php'>Catalogo</a>";
 echo " | ";
 echo "<a href='facturacion.php'>Facturacion Electronica</a>";
 echo " | ";

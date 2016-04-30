@@ -115,7 +115,9 @@ if(mysqli_num_rows($results1) > 0){
 	echo "<h1> Reportes de ventas Anuales</h1>";
 	$usuarios = getAllUsers();
 	$total = 0.0;
+	echo "<Table><tr>";
 	while($users = mysqli_fetch_assoc($usuarios)){
+		echo"<td>";
 		echo "<table class = 'table'>";
 		echo "<p>".$users['usuario']."</p>";
 		echo "<tr class = 'table row'><td><b>Mes</b></td><td><b>Ventas</b>	</td></tr>";
@@ -125,12 +127,20 @@ if(mysqli_num_rows($results1) > 0){
 		echo "<tr class = 'table row'><td>".getMonthText($mes)."</td><td>".$row['ventas']."</td></tr>";
 		$total += $row['ventas']; 
 		
+
 		
 	}
-	echo "<tr class = 'table row'><td>Total</td><td>".$total."</td></tr>";
+	echo "<tr class = 'table row'><td><b>Total</b></td><td>".$total."</td></tr>";
+	if($total>100000.0){
+		setVipUser($users['usuario']);
+		echo "VIPCostumer";
+	}
 	$total = 0.0;
-}	
 	echo"</table>";
+	echo "</td>";
+}	
+	echo "</tr></table>";
+
 	echo"</div>";
 	unset($usuarios,$total,$users,$ventas,$total,$row);
 

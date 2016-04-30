@@ -19,17 +19,22 @@
 		<h1>Maquinaria</h1>
 		<div id="menuheader">
 		<ul>
-			<li><a href="sye.html">Secado y enfriamiento</a></li>
-			<li><a href="manejo.html">Manejo de sólidos y tratamientos térmicos especiales</a></li>
-			<li><a href="depuracion.html">Depuración de gases</a></li>
+			<li><a href="sye.php">Secado y enfriamiento</a></li>
+			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
+			<li><a href="depuracion.php">Depuración de gases</a></li>
 		</ul>
 		</div>
 
 		<h2>Elementos especiales</h2>
 
 		<table> 	
-			<tr><td><a href="">Cuchillas rascadoras</a></td></tr>
-			<tr><td><a href="">Compensadores de dilatación</a></td></tr>
+			<tr>
+				<td>
+					<img src="img/kit-portacuchillas10-cuchillas.jpg" width=135px height=135px><br><input type="checkbox" name="cuch" value="1">Cuchillas rascadoras</br>
+				</td>
+				<td>
+					<img src="img/4977-2811207.jpg" width=135px height=135px><br><input type="checkbox" name="lf" value="1">Compensadores de dilatación</br>
+				</td>
 			</tr>
 		</table>
 	</body>

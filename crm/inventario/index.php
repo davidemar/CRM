@@ -19,18 +19,10 @@
 		<h1>Maquinaria</h1>
 		<div id="menuheader">
 		<ul>
-			<li><a href="sye.html">Secado y enfriamiento</a></li>
-			<li><a href="manejo.html">Manejo de sólidos y tratamientos térmicos especiales</a></li>
-			<li><a href="depuracion.html">Depuración de gases</a></li>
+			<li><a href="sye.php">Secado y enfriamiento</a></li>
+			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
+			<li><a href="depuracion.php">Depuración de gases</a></li>
 		</ul>
 		</div>
-
-		<h2>Depuración de gases</h2>
-
-		<table> 	
-			<tr><td>Captaciones de polvo</td></tr>
-			<tr><td>Tratamiento gases escape</td></tr>
-			</tr>
-		</table>
 	</body>
 </HTML>

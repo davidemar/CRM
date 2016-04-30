@@ -15,9 +15,6 @@ function ProcessLogin($post)
     }else{
        return false; 
     }
-
-	
-
 }
 
 function ProcessUserLogin($post){
@@ -33,27 +30,6 @@ function ProcessUserLogin($post){
     }else{
        return false; 
     }
-}
-
-
-
-function UpdateContact($post)
-{
-
-}
-
-function SaveContact($post)
-{
-
-}
-function UpdateCategory($post)
-{
-
-}
-
-function SaveCcategory($post)
-{
-
 }
 
 function GetCategories()
@@ -147,11 +123,6 @@ function setComplain($query)
         <?php
         return false;
     }
-
-
-    
-    
-    
 }
 
 function deleteClientData($query)
@@ -164,11 +135,6 @@ function deleteClientData($query)
         <?php
         return true;
     }
-
-
-    
-    
-    
 }
 
 function getUsuarios(){
@@ -297,6 +263,13 @@ function getAllUsers()
 {   
     $conn = GetConnection();
     $query = "SELECT usuario from orden where fecha like '2016%' GROUP BY usuario";
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
+function setVipUser($usuario)
+{
+    $conn = GetConnection();
+    $query = "INSERT INTO vipUsuario(usuarioid) VALUES ('$usuario')";
     $results = mysqli_query($conn,$query);
     return $results;
 }

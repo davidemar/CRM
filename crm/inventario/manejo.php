@@ -19,19 +19,18 @@
 		<h1>Maquinaria</h1>
 		<div id="menuheader">
 		<ul>
-			<li><a href="sye.html">Secado y enfriamiento</a></li>
-			<li><a href="manejo.html">Manejo de sólidos y tratamientos térmicos especiales</a></li>
-			<li><a href="depuracion.html">Depuración de gases</a></li>
+			<li><a href="sye.php">Secado y enfriamiento</a></li>
+			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
+			<li><a href="depuracion.php">Depuración de gases</a></li>
 		</ul>
 		</div>
 
-		<h2>Enfriadores de contacto</h2>
+		<h2>Manejo de sólidos y tratamientos térmicos especiales</h2>
 
 		<table> 	
-			<tr><td><a href="">Enfriador multicámara</a></td></tr>
-			<tr><td><a href="">Secadero/Enfriador de doble eje de palas GPD</a></td></tr>
-			<tr><td><a href="">Escamadora de rodillo</a></td></tr>
-			<tr><td><a href="">Pastilladora de discos</a></td><tr>
+			<tr><td><a href="ape.php">Aparatos térmicos especiales</a></td></tr>
+			<tr><td><a href="mansol.php">Manejo de sólidos</a></td></tr>
+			<tr><td><a href="elesp.php">Elementos especiales</a></td></tr>
 			</tr>
 		</table>
 	</body>

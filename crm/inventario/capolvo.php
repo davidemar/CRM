@@ -19,20 +19,19 @@
 		<h1>Maquinaria</h1>
 		<div id="menuheader">
 		<ul>
-			<li><a href="sye.html">Secado y enfriamiento</a></li>
-			<li><a href="manejo.html">Manejo de sólidos y tratamientos térmicos especiales</a></li>
-			<li><a href="depuracion.html">Depuración de gases</a></li>
+			<li><a href="sye.php">Secado y enfriamiento</a></li>
+			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
+			<li><a href="depuracion.php">Depuración de gases</a></li>
 		</ul>
 		</div>
 
-		<h2>Enfriadores convectivos</h2>
+		<h2>Captación de Polvo</h2>
 
-		<table> 	
-			<tr><td><a href="">Lecho fluido</a></td></tr>
-			<tr><td><a href="">Tambores rotativos</a></td></tr>
-			<tr><td><a href="">Spiral flash</a></td></tr>
-			<tr><td><a href="">Tambores rotativos</a></td><tr>
-			<tr><td><a href="">Spiral flash</a></td><tr>
+		<table>
+			<tr>
+				<td>
+					<img src="img/ciclones_135x135_i.jpg"><br><input type="checkbox" name="cicl" value="1">Ciclones de Alta Eficiencia</br>
+				</td>
 			</tr>
 		</table>
 	</body>

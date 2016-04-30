@@ -19,18 +19,19 @@
 		<h1>Maquinaria</h1>
 		<div id="menuheader">
 		<ul>
-			<li><a href="sye.html">Secado y enfriamiento</a></li>
-			<li><a href="manejo.html">Manejo de sólidos y tratamientos térmicos especiales</a></li>
-			<li><a href="depuracion.html">Depuración de gases</a></li>
+			<li><a href="sye.php">Secado y enfriamiento</a></li>
+			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
+			<li><a href="depuracion.php">Depuración de gases</a></li>
 		</ul>
 		</div>
 
-		<h2>Secaderos de contacto</h2>
+		<h2>Tratamiento de gases escape</h2>
 
-		<table> 	
-			<tr><td><a href="">Secadero de haz tubular</a></td></tr>
-			<tr><td><a href="">Secadero de rodillo</a></td></tr>
-			<tr><td><a href="">Secadero/Enfriador de doble eje de palas GPD</a></td></tr>
+		<table>
+			<tr>
+				<td>
+					<img src="img/venturi_135x135_i.jpg"><br><input type="checkbox" name="vent" value="1">Lavador de Gases Venturi</br>
+				</td>
 			</tr>
 		</table>
 	</body>
