@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!$_SESSION['UserLoggedIn'])
+{
+	header('location: /./userLogin.php');
+}
+?>
 <DOCTYPE! HTML>
 	<head>
 		<meta charset=utf-8>

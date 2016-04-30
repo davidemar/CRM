@@ -19,7 +19,7 @@ $fechaActual = date("y-m-d");
 
 
 
-	$queja_id = (intval(getSizeOfRow()) + 1);
+	$queja_id = (intval(getSizeOfQuejaRow()) + 1);
 	echo $queja_id;	
 
 

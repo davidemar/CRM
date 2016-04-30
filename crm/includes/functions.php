@@ -67,7 +67,10 @@ function GetCategory($id)
 {
 
 }
-
+function prueba()
+{   $x = 'ya jala';
+    return $x;
+}
 function GetConnection()
 {
 		$connection = mysqli_connect('localhost','root','root','crm');
@@ -102,12 +105,29 @@ function setClientData($query)
         <?php
         return false;
     }
-
-
-    
-    
-    
 }
+
+
+   function setOrden($query)
+   {
+    $conn = GetConnection();
+    $results = mysqli_query($conn,$query);
+    if($results)
+    {   
+        ?>
+                <script>alert('Compra Exitosa');</script>
+        <?php
+        return true;
+    }else {
+         ?>
+        <script>alert('Fallo la compra');</script>
+        <?php
+        return false;
+    }
+   } 
+    
+    
+
 function setComplain($query)
 {
     $conn = GetConnection();
@@ -145,14 +165,23 @@ function getUsuarios(){
     return $results;
 }
 
-function getSizeOfRow()
+function getSizeOfQuejaRow()
 {
     $conn = GetConnection();
-    $query = "select count(queja_id) from queja;";
+    $query = "select count(queja_id) cantidad from queja;";
     $results = mysqli_query($conn,$query);
     $row = mysqli_fetch_assoc($results);
-    $desplegar = $row['count(queja_id)'];
+    $desplegar = $row['cantidad'];
     return $desplegar;
+}
+function getSizeOfRowOrden_id()
+{
+    $conn = GetConnection();
+    $query = 'select count(orden_id) cantidad from orden;';
+    $results = mysqli_query($conn,$query);
+    $row = mysqli_fetch_assoc($results);
+    $regresar = $row['cantidad'];
+    return $regresar;
 }
 
 function getUsersPerMonth()
@@ -170,7 +199,13 @@ function getAnualSales()
     $results = mysqli_query($conn,$query);
     return $results;
 }
-
+function getInfoProduct($producto)
+{
+    $conn = GetConnection();
+    $query = "SELECT * from producto where producto_id = '$producto';";
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
 function getQueryBestBuyer(){
      $conn = GetConnection();
     $query = "SELECT sum(total) venta,usuario from orden where fecha like '2016%' group by usuario";
@@ -272,5 +307,10 @@ function setVipUser($usuario)
     $query = "INSERT INTO vipUsuario(usuarioid) VALUES ('$usuario')";
     $results = mysqli_query($conn,$query);
     return $results;
+}
+function getTodaysDate()
+{
+    $fechaActual = date("y-m-d");   
+    return $fechaActual;
 }
 ?>
