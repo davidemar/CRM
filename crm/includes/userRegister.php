@@ -17,31 +17,24 @@ include_once('functions.php');
  $colonia = mysqli_real_escape_string($conn,$_POST['colonia']);
  $ciudad = mysqli_real_escape_string($conn,$_POST['ciudad']);
 
-
- 
 $Squery = "INSERT INTO usuario(usuario_id,ncompania,contrasena,email,pnombre,papellido,sapellido,calle,numero,colonia,ciudad,dia) VALUES('$usuario_id','$ncompania','$contrasena','$email','$pnombre','$papellido','$sapellido','$calle','$numero','$colonia','$ciudad','$fechaActual')";
- 
-   
-if(setClientData($Squery) === true){
-	header('location: /./userLogin.php');
-}
-
+setClientData($Squery);
 
 }	
 ?>
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <title>Login & Registration System</title>
-
-
-
-
-
 </head>
 <body>
+
+<div id="menuheader">
+		<ul>
+			<li><a href='../userlogin.php' class='logout'>Login</a></li>
+		</ul>
+		</div>
 
 
 
@@ -98,9 +91,6 @@ if(setClientData($Squery) === true){
 <tr>
 <td><button type="submit" name="btn-signup">Registrarse</button></td>
 </tr>
-
-
-
 
 </table>
 </form>

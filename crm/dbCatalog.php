@@ -40,7 +40,7 @@ if(isset($_POST["submit"]))
 	$query = "INSERT into orden(orden_id,idproduct,producto,usuario,impuesto,precio,subtotal,fecha,cant,costo_envio,total) values('$orden_id','$idproduct','$product','$usuario',
 		'$impuesto','$precio','$subtotal','$fecha','$cant','$costo_envio','$total');";
 	echo $query;
-	setOrden($query);
+	//setOrden($query);
 
 }
 ?>

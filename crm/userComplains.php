@@ -20,7 +20,7 @@ $fechaActual = date("y-m-d");
 
 
 	$queja_id = (intval(getSizeOfQuejaRow()) + 1);
-	echo $queja_id;	
+	$queja_id;	
 
 
 
@@ -39,28 +39,26 @@ setComplain($Squery);
 }	
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Centro de quejas</title>
 
-
-
-
-
-</head>
 <body>
 
-<div id='menu'>
-
-
-
-
-
-
-<a href='userLogout.php' class='logout'>Logout</a>
-</div>
+<head>
+<meta charset="UTF-8" />
+<title>Centro de Quejas</title>
+<link rel="stylesheet" type="text/css" href="css/stilo.css">
+</head>
+<body>
+<h1>Introduce tu queja o comentario porfavor  <?php  echo "  ".$_SESSION['username']; ?>  </h1>
+		<div id="menuheader">
+		<ul>
+			<li><a href='inventario/index.php'>Catalogo</a></li>
+			<li><a href='facturacion.php'>Facturacion Electronica</a></li>
+			<li><a href='userComplains.php'>Quejas </a></li>
+			<li><a href='userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
+		</ul>
+		</div>
+<center>
+</body>
 
 <center>
 <div id="login-form">

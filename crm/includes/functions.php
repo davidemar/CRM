@@ -98,15 +98,22 @@ function setClientData($query)
         ?>
                 <script>alert('Exitosamente Registrado');</script>
         <?php
-        return true;
+        header('location: /./userlogin.php');
+        
     }else{
         ?>
         <script>alert('Fallo el registro');</script>
         <?php
-        return false;
     }
-}
 
+    return $results;
+}
+function getTicketInfo($query)
+{
+    $conn = GetConnection();
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
 
    function setOrden($query)
    {
@@ -183,6 +190,7 @@ function getSizeOfRowOrden_id()
     $regresar = $row['cantidad'];
     return $regresar;
 }
+
 
 function getUsersPerMonth()
 {
@@ -313,4 +321,5 @@ function getTodaysDate()
     $fechaActual = date("y-m-d");   
     return $fechaActual;
 }
+
 ?>

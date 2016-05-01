@@ -29,6 +29,7 @@ include_once('../dbCatalog.php');
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
+			<li><a href="../userHome.php">Menu</a></li>
 			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
@@ -36,7 +37,7 @@ include_once('../dbCatalog.php');
 		<h2>Manejo de sólidos</h2>
 
 		<table> 
-			<form method = "post" action = 'ape.php'>	
+			<form method = "post" action = 'mansol.php'>	
 			<tr>
 				<td>
 					<img src="img/mezclador_135x135_i.jpg"><br><input type="radio" name="producto" value="Mezclador_de_doble_Eje"/>Mezclador/Granulador de doble eje DWG</br>

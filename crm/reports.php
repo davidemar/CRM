@@ -60,7 +60,7 @@ if(mysqli_num_rows($results1) > 0){
 //<------------------------------------------------------------------------------------------------------------------->
 // Annual Sales 		
 	echo "<div id = reporte2>";
-	echo "<h1> Reportes de ventas Anuales</h1>";
+	echo "<h1> Reportes de Compras Anuales</h1>";
 	$results2 = getAnualSales();
 	$firstResults = getAnualSales();
 	$ventaMayor = 0.0;
@@ -101,7 +101,7 @@ if(mysqli_num_rows($results1) > 0){
 	echo"</table>";
 	echo "</div>";
 
-	unset($results2,$firstResults,$monthh,$row2,$ventaMenor,$ventaMayor,$fechaMenor,$fechaMayor,$primero,$fechaMenor,$primerComprador);
+	
 	$mesMayor = date("m",strtotime($fechaMayor));
 	$mesMenor = date("m",strtotime($fechaMenor));
 	$usuarioMayor = bestClient();
@@ -109,10 +109,10 @@ if(mysqli_num_rows($results1) > 0){
 	echo "<p>Peor mes en compras: ".getMonthText($mesMenor);
 	echo "<p>El cliente que mas compras hizo es: ". $usuarioMayor;
 	unset($mesMayor,$mesMenor,$usuarioMayor);
-	
+	unset($results2,$firstResults,$monthh,$row2,$ventaMenor,$ventaMayor,$fechaMenor,$fechaMayor,$primero,$fechaMenor,$primerComprador);
 	///---------------------------------------VIP COSTUMBERS ////////////////////////////////////////////////////////
 	echo "<div id = reporte3>";
-	echo "<h1> Reportes de ventas Anuales</h1>";
+	echo "<h1> Reportes de Clientes VIP</h1>";
 	$usuarios = getAllUsers();
 	$total = 0.0;
 	echo "<Table><tr>";
