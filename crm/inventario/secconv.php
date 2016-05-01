@@ -1,4 +1,11 @@
-<DOCTYPE! HTML>
+<?php
+session_start();
+if(!$_SESSION['UserLoggedIn'])
+{
+	header('location: /./userLogin.php');
+}
+include_once('../dbCatalog.php');
+?>
 	<head>
 		<meta charset=utf-8>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -22,17 +29,23 @@
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
+			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
 
 		<h2>Secaderos convectivos</h2>
 
 		<table>
+			<form action = 'secconv.php' method = 'post'>
 			<tr>
-				<td><img src="img/spiral_flash_135x135_i.jpg"><br><input type="checkbox" name="flash" value="1">Flash</br></td>
-				<td><img src="img/lecho_fluido_135x135_i.jpg"><br><input type="checkbox" name="lecho" value="1">Lecho fluído</br></td>
-				<td><img src="img/tambor_135x135_i.jpg"><br><input type="checkbox" name="tambor" value="1">Tambores rotativos</br></td>
+				<td><img src="img/spiral_flash_135x135_i.jpg"><br><input type="radio" name="producto" value="Flash"/>Flash</br></td>
+				<td><img src="img/lecho_fluido_135x135_i.jpg"><br><input type="radio" name="producto" value="Lecho_Fluido"/>Lecho fluído</br></td>
+				<td><img src="img/tambor_135x135_i.jpg"><br><input type="radio" name="producto" value="Tambor_rotativo"/>Tambores rotativos</br></td>
 			</tr>
+			<tr>
+				<td><button type="submit" name ="submit">Comprar</button></td>
+			</tr>
+		</form>
 		</table>
 	</body>
 </HTML>

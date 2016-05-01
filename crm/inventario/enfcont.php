@@ -4,6 +4,7 @@ if(!$_SESSION['UserLoggedIn'])
 {
 	header('location: /./userLogin.php');
 }
+include_once('../dbCatalog.php');
 ?>
 <DOCTYPE! HTML>
 	<head>
@@ -29,28 +30,33 @@ if(!$_SESSION['UserLoggedIn'])
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
+			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
 
 		<h2>Enfriadores de contacto</h2>
 
-		<table> 	
+		<table> 
+		<form method = "post" action = 'enfcont.php'>	
 			<tr>
 				<td>
-					<img src="img/multicamara_135x135_i.jpg"><br><input type="checkbox" name="lf" value="1">Enfriador multicámara</br>
+					<img src="img/multicamara_135x135_i.jpg"><br><input type="checkbox" name="producto" value="Enfriador_Multicamara"/>Enfriador multicámara</br>
 				</td>
 				<td>
-					<img src="img/paddle_135x135_g.jpg"><br><input type="checkbox" name="lf" value="1">Secadero/Enfriador de doble eje de palas GPD</br>
+					<img src="img/paddle_135x135_g.jpg"><br><input type="checkbox" name="producto" value="Doble_Eje"/>Secadero/Enfriador de doble eje de palas GPD</br>
 				</td>
 				<td>
-					<img src="img/rodillo_135x135_g.jpg"><br><input type="checkbox" name="lf" value="1">Escamadora de rodillo</br>
+					<img src="img/rodillo_135x135_g.jpg"><br><input type="checkbox" name="producto" value="Escamadora_De_Rodillo"/>Escamadora de rodillo</br>
+				</td>
+				<td>
+					<img src="img/pastillator_135x135_g.jpg"><br><input type="checkbox" name="producto" value="Pastilladora_De_Discos"/>Pastilladora de discos</br>
 				</td>
 			</tr>
 			<tr>
-				<td>
-					<img src="img/pastillator_135x135_g.jpg"><br><input type="checkbox" name="lf" value="1">Pastilladora de discos</br>
-				</td>
+				<td><button type="submit" name ="submit">Comprar</button></td>
 			</tr>
+		</form>
+		</form>
 		</table>
 	</body>
 </HTML>

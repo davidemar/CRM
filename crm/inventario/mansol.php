@@ -4,8 +4,8 @@ if(!$_SESSION['UserLoggedIn'])
 {
 	header('location: /./userLogin.php');
 }
+include_once('../dbCatalog.php');
 ?>
-<DOCTYPE! HTML>
 	<head>
 		<meta charset=utf-8>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -29,33 +29,36 @@ if(!$_SESSION['UserLoggedIn'])
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
+			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
 
 		<h2>Manejo de sólidos</h2>
 
-		<table> 	
+		<table> 
+			<form method = "post" action = 'ape.php'>	
 			<tr>
 				<td>
-					<img src="img/mezclador_135x135_i.jpg"><br><input type="checkbox" name="lf" value="1">Mezclador/Granulador de doble eje DWG</br>
+					<img src="img/mezclador_135x135_i.jpg"><br><input type="radio" name="producto" value="Mezclador_de_doble_Eje"/>Mezclador/Granulador de doble eje DWG</br>
 				</td>
 				<td>
-					<img src="img/alveolar_135x135_i.jpg"><br><input type="checkbox" name="lf" value="1">Válvulas rotativas autolimpiantes</br>
+					<img src="img/alveolar_135x135_i.jpg"><br><input type="radio" name="producto" value="Valvulas_rotativas_autolimpiantes"/>Válvulas rotativas autolimpiantes</br>
 				</td>
 				<td>
-					<img src="img/vises_135x135_i.jpg"><br><input type="checkbox" name="lf" value="1">Vises de transporte especiales</br>
+					<img src="img/vises_135x135_i.jpg"><br><input type="radio" name="lf" value="1"/>Vises de transporte especiales</br>
 				</td>
 			<tr>
 				<td>
-					<img src="img/mill_sifter_135x135_g.jpg"><br><input type="checkbox" name="lf" value="1">Molino tamizador</br>
+					<img src="img/mill_sifter_135x135_g.jpg"><br><input type="radio" name="lf" value="1"/>Molino tamizador</br>
 				</td>
 				<td>
-					<img src="img/bunker_135x135_i.jpg"><br><input type="checkbox" name="lf" value="1">Silo dosificador</br>
+					<img src="img/bunker_135x135_i.jpg"><br><input type="radio" name="lf" value="1"/>Silo dosificador</br>
 				</td>
 				<td>
-					<img src="img/desterronador_135x135_i.jpg"><br><input type="checkbox" name="lf" value="1">Desterrador</br>
+					<img src="img/desterronador_135x135_i.jpg"><br><input type="radio" name="lf" value="1"/>Desterrador</br>
 				</td>
 			</tr>
+			<form>
 		</table>
 	</body>
 </HTML>
