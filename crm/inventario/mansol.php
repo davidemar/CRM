@@ -45,18 +45,21 @@ include_once('../dbCatalog.php');
 					<img src="img/alveolar_135x135_i.jpg"><br><input type="radio" name="producto" value="Valvulas_rotativas_autolimpiantes"/>Válvulas rotativas autolimpiantes</br>
 				</td>
 				<td>
-					<img src="img/vises_135x135_i.jpg"><br><input type="radio" name="lf" value="1"/>Vises de transporte especiales</br>
+					<img src="img/vises_135x135_i.jpg"><br><input type="radio" name="producto" value="Vises_"/>Vises de transporte especiales</br>
 				</td>
 			<tr>
 				<td>
-					<img src="img/mill_sifter_135x135_g.jpg"><br><input type="radio" name="lf" value="1"/>Molino tamizador</br>
+					<img src="img/mill_sifter_135x135_g.jpg"><br><input type="radio" name="producto" value="Molino"/>Molino tamizador</br>
 				</td>
 				<td>
-					<img src="img/bunker_135x135_i.jpg"><br><input type="radio" name="lf" value="1"/>Silo dosificador</br>
+					<img src="img/bunker_135x135_i.jpg"><br><input type="radio" name="producto" value="Silo_d"/>Silo dosificador</br>
 				</td>
 				<td>
-					<img src="img/desterronador_135x135_i.jpg"><br><input type="radio" name="lf" value="1"/>Desterrador</br>
+					<img src="img/desterronador_135x135_i.jpg"><br><input type="radio" name="producto" value="Dester"/>Desterrador</br>
 				</td>
+			</tr>
+			<tr>
+				<td><button type="submit" name ="submit">Comprar</button></td>
 			</tr>
 			<form>
 		</table>

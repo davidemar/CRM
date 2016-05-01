@@ -4,8 +4,8 @@ if(!$_SESSION['UserLoggedIn'])
 {
 	header('location: /./userLogin.php');
 }
+include_once('../dbCatalog.php');
 ?>
-<DOCTYPE! HTML>
 	<head>
 		<meta charset=utf-8>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -29,20 +29,26 @@ if(!$_SESSION['UserLoggedIn'])
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
+			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
 
 		<h2>Elementos especiales</h2>
 
-		<table> 	
+		<table> 
+			<form method = "post" action = 'elesp.php'>		
 			<tr>
 				<td>
-					<img src="img/kit-portacuchillas10-cuchillas.jpg" width=135px height=135px><br><input type="checkbox" name="cuch" value="1">Cuchillas rascadoras</br>
+					<img src="img/kit-portacuchillas10-cuchillas.jpg" width=135px height=135px><br><input type="radio" name="producto" value="Cuchil"/>Cuchillas rascadoras</br>
 				</td>
 				<td>
-					<img src="img/4977-2811207.jpg" width=135px height=135px><br><input type="checkbox" name="lf" value="1">Compensadores de dilatación</br>
+					<img src="img/4977-2811207.jpg" width=135px height=135px><br><input type="radio" name="producto" value="Compen"/>Compensadores de dilatación</br>
 				</td>
 			</tr>
+			<tr>
+				<td><button type="submit" name ="submit">Comprar</button></td>
+			</tr>
+		</form>
 		</table>
 	</body>
 </HTML>

@@ -3,9 +3,10 @@ session_start();
 if(!$_SESSION['UserLoggedIn'])
 {
 	header('location: /./userLogin.php');
+	include_once('../dbCatalog.php');
 }
+
 ?>
-<DOCTYPE! HTML>
 	<head>
 		<meta charset=utf-8>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -29,17 +30,23 @@ if(!$_SESSION['UserLoggedIn'])
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
+			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
 
 		<h2>Tratamiento de gases escape</h2>
 
 		<table>
+			<form action = 'secconv.php' method = 'post'>
 			<tr>
 				<td>
-					<img src="img/venturi_135x135_i.jpg"><br><input type="checkbox" name="vent" value="1">Lavador de Gases Venturi</br>
+					<img src="img/venturi_135x135_i.jpg"><br><input type="radio" name="producto" value="Lavado"/>Lavador de Gases Venturi</br>
 				</td>
 			</tr>
+			<tr>
+				<td><button type="submit" name ="submit">Comprar</button></td>
+			</tr>
+		</form>
 		</table>
 	</body>
 </HTML>
