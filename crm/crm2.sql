@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: May 03, 2016 at 03:51 AM
+-- Generation Time: May 01, 2016 at 11:32 PM
 -- Server version: 5.5.42
 -- PHP Version: 7.0.0
 
@@ -90,7 +90,6 @@ INSERT INTO `orden` (`orden_id`, `idproduct`, `producto`, `usuario`, `impuesto`,
 ('26', 'Lecho_', 'Lecho_Fluido', 'mrilyn', '0.10', '90000.00', '99000.00', '2016-05-01', '1.00', '100000.00', '999.99'),
 ('27', 'Banda_', 'Banda_De_Cepillado', 'mrilyn', '0.10', '60000.00', '66000.00', '2016-05-01', '1.00', '67000.00', '999.99'),
 ('28', 'Ciclon', 'Ciclon', 'mrilyn', '0.10', '45000.00', '49500.00', '2016-05-01', '1.00', '50500.00', '999.99'),
-('29', 'Banda_', 'Banda_De_Cepillado', 'mrilyn', '0.10', '60000.00', '66000.00', '2016-05-03', '1.00', '67000.00', '999.99'),
 ('3', '', '', 'mrilyn', '9.99', '100.00', '110.00', '2016-03-13', '1.00', '120000.00', '100.00'),
 ('4', '', '', 'LKNLK', '8.00', '9.00', '78.00', '2016-12-13', '7.00', '7.00', '2.00'),
 ('5', '', '', 'David', '9.99', '100.00', '110.40', '2016-07-15', '1.00', '310.40', '200.00'),
@@ -149,29 +148,10 @@ INSERT INTO `producto` (`producto_id`, `precio`, `ncompania`, `enstock`, `descri
 --
 
 CREATE TABLE `proveedor` (
-  `proveedor_id` varchar(20) NOT NULL,
-  `email` varchar(40) DEFAULT NULL,
+  `proveedor_id` varchar(6) NOT NULL,
+  `email` varchar(20) DEFAULT NULL,
   `horario` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `proveedor`
---
-
-INSERT INTO `proveedor` (`proveedor_id`, `email`, `horario`) VALUES
-('DavidMarts', 'davidmarts@empresa.com', '8am-6pm'),
-('compat', 'compat@enterprise.com', '8am-12pm'),
-('senseye', 'senseye@senseye.com', '8am-4pm'),
-('acme', 'ventas@acme.com', '8am-12pm'),
-('altar', 'ventas@altar.com', '8am-12pm'),
-('Alto', 'comprasYventas@alto.com', '10am-12pm'),
-('Tecsa', 'compras@tecsa.com', '11am-12pm'),
-('Asupplier', 'ventas@asupplier.com', '10am-12pm'),
-('logia ', 'ventas@logia.com', '8am-12pm'),
-('Tesla', 'tesla@gmail.com', '10am-10pm'),
-('Benq', 'ventas@Benq.com', '10am-12pm'),
-('davidsales', 'davidsales@hotmail.com', '10am-12pm'),
-('ventasrodriguez', 'comprasYVentas@ventasrodriguez.com', '10am-12pm');
 
 -- --------------------------------------------------------
 
