@@ -26,7 +26,7 @@ echo "</div>";
 ?>
 <head>
 <meta charset="UTF-8" />
-<title>Facturacion</title>
+<title>Bienvenid@! <?php  echo "  ".$_SESSION['username']; ?></title>
 <link rel="stylesheet" type="text/css" href="css/stilo.css">
 </head>
 <body>

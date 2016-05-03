@@ -10,7 +10,7 @@ if(!$_SESSION['UserLoggedIn'])
 	<head>
 		<meta charset=utf-8>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<title>Inventario</title>
+	
 		<script src="javascript/jquery.js"></script>
 		<script>
 			$(document).ready(function(){

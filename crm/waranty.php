@@ -7,7 +7,7 @@ if(!$_SESSION['UserLoggedIn'])
 ?>
 <head>
 <meta charset="UTF-8" />
-<title>Facturacion</title>
+<title>Garantia</title>
 <link rel="stylesheet" type="text/css" href="css/stilo.css">
 </head>
 <body>
