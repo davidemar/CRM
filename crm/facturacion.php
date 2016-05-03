@@ -19,6 +19,7 @@ if(!$_SESSION['UserLoggedIn'])
 			<li><a href='inventario/index.php'>Catalogo</a></li>
 			<li><a href='facturacion.php'>Facturacion Electronica</a></li>
 			<li><a href='userComplains.php'>Quejas </a></li>
+			<li><a href='waranty.php'>Garantia </a></li>
 			<li><a href='userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>
@@ -50,8 +51,8 @@ $fecha = $_POST['dia'];
 
 	 $ticket = rand (0 , 20000);
 	
-$query = "select orden.producto,producto.descripcion,orden.cant,orden.impuesto, orden.total from orden,producto where orden.idproduct = producto.producto_id and orden.fecha = '$fecha' and orden.usuario = '$usuario_id'";
-
+//$query = "select orden.producto,producto.descripcion,orden.cant,orden.impuesto, orden.total from orden,producto where orden.idproduct = producto.producto_id and orden.fecha = '$fecha' and orden.usuario = '$usuario_id'";
+$query = "select orden.producto,producto.ncompania, producto.descripcion,orden.cant,orden.impuesto, orden.total from orden,producto where orden.idproduct = producto.producto_id and orden.fecha = '$fecha' and orden.usuario = '$usuario_id'";
 $results = getTicketInfo($query);
 $total = o;
 $cantidad = 0;
@@ -71,10 +72,10 @@ $cantidad = 0;
 	echo "<tr>Telefono: 83310008272</tr>";
 	echo "<tr>";
 
-	echo"<tr><td>Cantidad</td><td>Producto</td><td>Descripcion del producto</td><td>Total</td></tr>";
+	echo"<tr><td>Cantidad</td><td>Producto</td><td>Compañia</td><td>Descripcion del producto</td><td>Total</td></tr>";
 	while($row = mysqli_fetch_assoc($results)){
 		
- 		echo"<tr><td>".$row['cant']."</td><td>".$row['producto']."</td><td>".$row['descripcion']."</td><td>".$row['total']."</td></tr>";	
+ 		echo"<tr><td>".$row['cant']."</td><td>".$row['producto']."</td><td>".$row['ncompania']."</td><td>".$row['descripcion']."</td><td>".$row['total']."</td></tr>";	
  		$total += $row['total'] ;
  		$cantidad ++;
 

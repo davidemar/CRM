@@ -27,10 +27,10 @@ if(!$_SESSION['UserLoggedIn'])
 		<h1>Maquinaria</h1>
 		<div id="menuheader">
 		<ul>
+			<li><a href="../userHome.php">Menu</a></li>
 			<li><a href="sye.php">Secado y enfriamiento</a></li>
 			<li><a href="manejo.php">Manejo de sólidos y tratamientos térmicos especiales</a></li>
 			<li><a href="depuracion.php">Depuración de gases</a></li>
-			<li><a href="../userHome.php">Menu</a></li>
 			<li><a href='../userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>

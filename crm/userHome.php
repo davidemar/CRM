@@ -36,6 +36,7 @@ echo "</div>";
 			<li><a href='inventario/index.php'>Catalogo</a></li>
 			<li><a href='facturacion.php'>Facturacion Electronica</a></li>
 			<li><a href='userComplains.php'>Quejas </a></li>
+			<li><a href='waranty.php'>Garantia </a></li>
 			<li><a href='userLogout.php' class='logout'>Logout  <?php  echo "  ".$_SESSION['username']; ?> </a></li>
 		</ul>
 		</div>

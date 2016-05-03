@@ -321,5 +321,26 @@ function getTodaysDate()
     $fechaActual = date("y-m-d");   
     return $fechaActual;
 }
+function getProductData($product){
 
+$conn = GetConnection();
+$query = "select * from producto where producto_id = '$product'";
+$results = mysqli_query($conn,$query);
+return $results;
+}
+
+function getAllSupliers(){
+    $conn = GetConnection();
+    $query = "SELECT * from proveedor";
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
+function getSuplier($suplier)
+{
+    $conn = GetConnection();
+    $query = "SELECT * from proveedor where proveedor_id = '$suplier'";
+    $query;
+    $results = mysqli_query($conn,$query);
+    return $results;
+}
 ?>
